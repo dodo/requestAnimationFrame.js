@@ -1,6 +1,6 @@
 { "name": "request-animation-frame"
 , "description": "requestAnimationFrame shim"
-, "version": "0.0.1"
+, "version": "0.0.2"
 , "homepage": "https://github.com/dodo/requestAnimationFrame.js"
 , "author": "dodo (https://github.com/dodo)"
 , "repository": {"type": "git", "url": "git://github.com/dodo/requestAnimationFrame.js.git"}
