@@ -11,9 +11,10 @@
         break if (request ?= window?["#{vendor}RequestAnimationFrame"])
     # polyfill request
     isNative = request?
-    request = request ? (callback) ->
+    request = request ? (callback, timeout = 16) ->
         cur = new Date().getTime()
-        time = Math.max(0, 16 + last - cur)
+        time = Math.max(0, timeout + last - cur)
+        # FIXME if time is 0 do a process.nextTick or setIntermidiate
         id = setTimeout( ->
             callback?(cur + time)
         , time)
