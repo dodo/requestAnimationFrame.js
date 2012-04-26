@@ -1,5 +1,6 @@
+now = Date.now ? -> new Date().getTime()
+{ max } = Math
 # http://paulirish.com/2011/requestanimationframe-for-smart-animating/
-
 
 [ @requestAnimationFrame, @cancelAnimationFrame ] = do ->
     last = 0
@@ -12,8 +13,8 @@
     # polyfill request
     isNative = request?
     request = request ? (callback, timeout = 16) ->
-        cur = new Date().getTime()
-        time = Math.max(0, timeout + last - cur)
+        cur = now()
+        time = max(0, timeout + last - cur)
         # FIXME if time is 0 do a process.nextTick or setIntermidiate
         id = setTimeout( ->
             callback?(cur + time)
